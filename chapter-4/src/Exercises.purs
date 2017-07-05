@@ -1,8 +1,7 @@
 module Exercises where
 
 import Prelude
-
-import Data.Array (head, tail)
+import Data.Array (filter, head, tail)
 import Data.Maybe (fromMaybe)
 
 isEven :: Int -> Boolean
@@ -18,3 +17,9 @@ evenNumbers [x] =
 evenNumbers arr =
   evenNumbers [(fromMaybe 0 (head arr))] +
   evenNumbers (fromMaybe [0] (tail arr))
+
+squareNumbers :: Array Int -> Array Int
+squareNumbers arr = (\n -> n * n) <$> arr
+
+onlyPositives :: Array Int -> Array Int
+onlyPositives arr = filter (\n -> n >= 0) arr
